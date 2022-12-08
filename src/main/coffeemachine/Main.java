@@ -3,9 +3,16 @@ package main.coffeemachine;
 import static main.coffeemachine.Input.*;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        CoffeeMachine machine = new CoffeeMachine();
+        int COFFEE_BEANS = 120;
+        int MILK = 540;
+        int WATER = 400;
+        int DISPOSABLE_CUPS = 9;
+        int MONEY = 550;
+
+        CoffeeMachine machine = new CoffeeMachine(WATER, MILK, COFFEE_BEANS, DISPOSABLE_CUPS, MONEY);
         boolean isWorking = true;
 
         while (isWorking) {

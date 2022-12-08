@@ -4,18 +4,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CoffeeMachine {
-    private int water = 400;
+    private int water;
 
-    private int milk = 540;
+    private int milk;
 
-    private int coffeeBeans = 120;
+    private int coffeeBeans;
 
-    private int disposableCups = 9;
+    private int disposableCups;
 
-    private int money = 550;
+    private int money;
     private final Map<Integer, Drink> drinks;
 
-    public CoffeeMachine() {
+    public CoffeeMachine(int water, int milk, int coffeeBeans, int disposableCups, int money) {
+        this.water = water;
+        this.milk = milk;
+        this.coffeeBeans = coffeeBeans;
+        this.disposableCups = disposableCups;
+        this.money = money;
         this.drinks = loadDrinks();
     }
 
@@ -38,6 +43,7 @@ public class CoffeeMachine {
                 coffeeBeans -= drink.COFFEE_BEANS();
                 money += drink.PRICE();
                 disposableCups--;
+                System.out.println("I have enough resources, making you a coffee!");
             }
         } catch (RuntimeException ignored) {
         }
@@ -69,6 +75,26 @@ public class CoffeeMachine {
             System.out.println("Sorry, not enough disposable cups!");
         }
         return true;
+    }
+
+    public int getWater() {
+        return water;
+    }
+
+    public int getMilk() {
+        return milk;
+    }
+
+    public int getCoffeeBeans() {
+        return coffeeBeans;
+    }
+
+    public int getDisposableCups() {
+        return disposableCups;
+    }
+
+    public int getMoney() {
+        return money;
     }
 
     @Override
